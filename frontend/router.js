@@ -1,10 +1,6 @@
-import { Route, IndexRoute } from 'react-router';
-import App from './App';
-
-import Form from './form/Form';
+import { Route } from 'react-router';
+import App from './app/App';
 
 module.exports = (
-    <Route path='/' component={App}>
-        <IndexRoute component={Form}/>
-    </Route>
+    <Route path='/' component={App} />
 );

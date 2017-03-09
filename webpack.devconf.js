@@ -66,9 +66,9 @@ module.exports = {
             ReactDOM:   'react-dom',
             React:      'react',
             PropTypes:  'react/lib/ReactPropTypes',
-            jQuery:     'jquery',
-            $:          'jquery',
-            jquery:     'jquery'
+            $:          "jquery",
+            jQuery:     "jquery",
+            "window.jQuery": "jquery"
         })
     ],
 

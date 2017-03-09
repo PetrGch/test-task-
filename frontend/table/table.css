@@ -1,0 +1,23 @@
+.table {
+  margin: 20px 0 0;
+
+  & table,
+  & thead,
+  & tbody,
+  & tr,
+  & >thead>tr>th,
+  & td {
+    border: 2px solid #777;
+  }
+
+  &__header {
+    background-color: #d2d2d2;
+  }
+
+  &-row {
+
+    & span {
+      cursor: pointer;
+    }
+  }
+}

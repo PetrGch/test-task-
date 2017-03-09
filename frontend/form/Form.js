@@ -1,24 +1,47 @@
-import './form.css'
+import Modal from './modal/Modalwindow';
+import { connect } from 'react-redux';
+import { filterUser } from '../redux/action';
 
-export default class From extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.submitForm = this.submitForm.bind(this);
-    }
-
-    submitForm(e) {
-        e.preventDefault();
-    }
-
+class Form extends React.Component {
     render() {
+        let props = this.props;
+        let inputValue;
+
         return (
-            <div className="add-form">
-                <form onSubmit={this.submitForm}>
-                    <input type="text" placeholder="Фильтер"/>
-                    <button type="submit">Добавить</button>
+            <div className="add-form ">
+                <form onSubmit={e => {e.preventDefault()}} className="row">
+                    <div className="col-lg-8">
+                        <input
+                            onChange={() => {
+                                props.dispatch(filterUser(inputValue.value));
+                            }}
+                            ref={node => {inputValue = node}}
+                            className="add-form__filter"
+                            type="text"
+                            placeholder="Фильтер"/>
+                    </div>
+                    <div className="col-lg-4 text-right">
+                        <button
+                            className="add-form__button btn btn-default"
+                            type="submit"
+                            data-toggle="modal"
+                            data-target="#myModal"
+                        >
+                            Добавить
+                        </button>
+                    </div>
                 </form>
+
+                <div className="modal-container ">
+                    <div className="modal" id="myModal" role="dialog">
+                        <Modal/>
+                    </div>
+                </div>
             </div>
         );
     }
 }
+
+Form = connect()(Form);
+
+export default Form;
